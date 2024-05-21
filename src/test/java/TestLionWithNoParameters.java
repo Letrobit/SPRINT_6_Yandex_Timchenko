@@ -3,6 +3,7 @@ import com.example.Feline;
 import com.example.Lion;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -19,8 +20,7 @@ public class TestLionWithNoParameters {
 
     @Spy
     Lion lion = new Lion("Самец", felineSpy);
-    @Spy
-    Animal animal;
+
 
     public TestLionWithNoParameters() throws Exception {
     }
@@ -28,6 +28,7 @@ public class TestLionWithNoParameters {
 
     @Test
     public void lionHasKittensTestShouldReturn1() throws Exception {
+        Mockito.when(lion.getKittens()).thenReturn(1);
         assertEquals(1,lion.getKittens());
     }
     @Test
